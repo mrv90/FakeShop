@@ -1,0 +1,109 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative; /* Ensure proper positioning of toast */
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: calc(100% - 20px);
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .links {
+            margin-top: 20px;
+        }
+        
+        .links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        
+        .toast {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" placeholder="Username or Email">
+            <input type="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <a href="register.html">Create an account</a>
+            <a href="forgot_password.html">Forgot password</a>
+        </div>
+        <!-- Toast element -->
+        <div class="toast" id="loginToast">Invalid username or password</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const loginForm = document.querySelector('form');
+        const loginToast = document.getElementById('loginToast');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you can add your login validation logic
+            // For demonstration, I'm showing the toast on button click
+            loginToast.style.display = 'block';
+            setTimeout(() => {
+                loginToast.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
